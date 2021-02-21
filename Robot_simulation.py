@@ -3,44 +3,46 @@ import math
 
 robots = []
 class Robot:
-    def __init__(self, name, consistency, points, minimum_points):
+    def __init__(self, name, success_rate, points, minimum_points = 0):
         self.name = name
-        self.consistency = consistency
+        self.success_rate = success_rate
         self.points = points
         self.minimum_points = minimum_points
         robots.append(self)
 
 
 
-DRS = Robot("DRS", 0.5, 100, 0)
-Rockville = Robot("Rockville", 0.8, 50, 25)
-Epost = Robot("Epost", 0.33, 500, 0)
-Items = Robot("Items", 0.7, 1000, 0)
+DRS = Robot("DRS", 0.5, 100)
+Rockville = Robot("Rockville", 0.8, 50)
+Epost = Robot("Epost", 0.33, 500)
+Items = Robot("Items", 0.7, 1000)
 
 
 # Battles robot1 and robot2. Returns True if robot1 wins and False if robot2 wins.
 def battle(robot1, robot2):
-    if random.randint(1, 100) < robot1.consistency * 100:
+    if random.randint(1, 100) < robot1.success_rate * 100:
         points_scored1 = robot1.points
     else:
         points_scored1 = robot1.minimum_points
     
     
-    if random.randint(1, 100) < robot2.consistency * 100:
+    if random.randint(1, 100) < robot2.success_rate * 100:
         points_scored2 = robot2.points
     else:
         points_scored2 = robot2.minimum_points
-    print(robot1.name + " points: " + str(points_scored1))
-    print(robot2.name + " points: " + str(points_scored2))
     if points_scored1 == points_scored2:
-        return("Tie")
+        if(random.random() >= 0.5):
+            return True
+        else:
+            return False
     return(points_scored1 > points_scored2)
  
-winners = []
-losers = []
+
 def do_tournament_between(robots):
     winners = []
     losers = []
+    #for i in range(0, int(math.log2(robots.count())) + 1):
+
     for robot in range(0, len(robots), 2):
         # Adds winning robot to the winning list and losers to the losers list.
         if battle(robots[robot], robots[robot + 1]):
@@ -59,11 +61,16 @@ def do_tournament_between(robots):
 def main():
     print("Starting code!")
     print()
-    
-    for i in range(0,5):
-        print("The winner of the tournament: " + do_tournament_between(robots))
-        
-    
+    total_tournaments = 0
+    robot_to_track = "Rockville"
+    tourney_robots = robots
+    robot_wins = 0
+    for i in range(0,10000):
+        if do_tournament_between(tourney_robots) == robot_to_track:
+            robot_wins += 1
+        total_tournaments += 1
+
+    print(robot_to_track + " win chance: " + str(robot_wins / total_tournaments))
     print()
     print("Finished code!")
 
