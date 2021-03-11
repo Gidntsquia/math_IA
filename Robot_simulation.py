@@ -15,7 +15,7 @@ class Robot:
     def __repr__(self):
         return repr((self.name, self.success_rate, self.points, self.wins, self.win_chance))
 
-"""
+
 # Ordered based on seeding bracket
 Los_Altos = Robot("Los Altos", 878, 0.5)
 Guardians = Robot("Guardians of the Garden Grove", 186, 0.875)
@@ -32,15 +32,14 @@ Malden_Cath = Robot("Malden Cath", 234, 0.375)
 Radiant = Robot("Radiant HT", 633, 0.5)
 G_Force = Robot("G-Force", 212, 0.625)
 
-Warriors = Robot("Warriors", 317, 0)
+Warriors = Robot("Warriors", 317, 0.375)
 Incredibots = Robot("Incredibots", 280, 0.875)
 
-EPost = Robot("Explorer Post 1010", 286, 0.625)
 Malden = Robot("Malden", 309, 0.5)
+EPost = Robot("Explorer Post 1010", 286, 0.625)
 
 Unic = Robot("HTL Unic", 672, 0.75)
 Crane = Robot("CWKA Crane", 201, 0.5)
-"""
 
 
 """
@@ -51,7 +50,7 @@ Incredibots = Robot("Incredibots", 280, 0.875)
 
 Radiant = Robot("Radiant HT", 633, 0.5)
 G_Force = Robot("G-Force", 212, 0.625)
-"""
+
 
 
 
@@ -61,7 +60,7 @@ RobotA = Robot("Robot A", 200, 0.25)
 RobotB = Robot("Robot B", 100, 0)
 RobotC = Robot("Robot C", 50, 0.75)
 RobotD = Robot("Robot D", 250, 0.125)
-
+"""
 
 # Battles robot1 and robot2. Returns True if robot1 wins and False if robot2 wins.
 def battle(robot1, robot2):
@@ -109,7 +108,7 @@ def main():
     tourney_robots = robots.copy()
     for robot in tourney_robots:
             robot.wins = 0
-    for i in range(0, 2000000):
+    for i in range(0, 10000000):
         winner = do_tournament_between(tourney_robots)
         for robot in tourney_robots:
             if robot.name == winner:
