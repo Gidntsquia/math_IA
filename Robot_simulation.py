@@ -57,7 +57,7 @@ G_Force = Robot("G-Force", 212, 0.625)
 # Demonstration robots
 
 RobotA = Robot("Robot A", 200, 0.25)
-RobotB = Robot("Robot B", 100, 0)
+RobotB = Robot("Robot B", 100, 0.5)
 RobotC = Robot("Robot C", 50, 0.75)
 RobotD = Robot("Robot D", 250, 0.125)
 """
@@ -108,7 +108,7 @@ def main():
     tourney_robots = robots.copy()
     for robot in tourney_robots:
             robot.wins = 0
-    for i in range(0, 10000000):
+    for i in range(0, 1000000):
         winner = do_tournament_between(tourney_robots)
         for robot in tourney_robots:
             if robot.name == winner:
