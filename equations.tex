@@ -3,7 +3,7 @@
 \usepackage{amsmath}
 \begin{document}
 
-Robot game winning probability
+\section{Robot game winning probability}
 
 
 \begin{align*}
@@ -18,7 +18,8 @@ Robot game winning probability
 Since we redo the game when both robots fail, 
 \begin{align*}
     P(W_H | B_1) &= P(W_{H})\\
-    P(W_H | B_1) &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2}) + P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
+    P(W_H) &= P(B_{1}) * P(W_{H}) + P(B_{2}) * P(W_{H} | B_{2})\\
+    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
 \end{align*}
 
 .
@@ -28,18 +29,15 @@ Since we redo the game when both robots fail,
 
 Let
 \begin{align*}
-    r &= (1-P(s_1))(1-P(s_2))\\
-    &= P(B_1)
-\end{align*}
-\begin{align*}
-    u_1 &= P(s_1)P(1-s_2) + P(s_1)P(s_2)P(B_4)\\
-    &= P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)
+    r &= P(B_1)\\
+    u_1 &= P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)
 \end{align*}
 
 
 
 \begin{align*}
-    P(W_H | B_1) &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2}) + P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})\\
+    P(W_H) &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2})\\
+    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})\\
     &= r(P(W_{H} | B_1)) + u_1\\
     &= u_1 + r(u_1 + u(P(W_{H} | B_1)))\\
     &= u_1 + r(u_1 + r(u_1 + r(u_1 + r\dots)))\\
@@ -55,24 +53,71 @@ series converges and we can use this formula to find a definite answer to this i
 Plugging in actual values in place of stand in variables:
 \begin{align*}
     s_{\infty} &= \frac{u_1}{1-r}\\
-    &= \frac{P(s_1)P(1-s_2) + P(s_1)P(s_2)P(B_4)}{P(B_1)}\\
-    &= \frac{P(s_1)P(1-s_2) + P(s_1)P(s_2)P(B_4)}{1-(1 - P(s_2) - P(s_1) + P(s_1) P(s_2))}\\
-    &= \frac{P(s_1)P(1-s_2) + P(s_1)P(s_2)P(B_4)}{P(s_1) + P(s_2) - P(s_1) P(s_2)}
+    &= \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{align*}
 
+Therefore,
 
 \begin{equation*}
     % Redo method
-    P(W_{H} | B_1) = \frac{(1-s_{A})(s_{B})(B_{2}) + (s_{A})(1-s_{B})(B_{3})+(s_{A})(s_{B})(B_{4})}{s_{A} + s_{B} - (s_{A})(s_{B})}
+    P(W_{H}) = \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{equation*}
 
-.
+\section{Bayes' Theorem}
+The question What is the probability a robot wins given that we redo all double fails?" can be restated as
+"What is the probability a robot wins given that at least one robot succeeds?" So, the "redo" method can be
+described as 
+\begin{align*}
+    P(W_H) &= P(W_H | s_1 \cup s_2)\\
+    &= P(W_H | B_1').
+\end{align*}
 
-.
+We can relate this conditional probability with \(P(B_1' | W_H) \) using Bayes' Theroem with the following
+equation:
+\begin{equation*}
+    P(W_H | B_1') = \frac{P(W_H) P(B_1' | W_H)}{P(W_H) P(B_1' | W_H) + P(W_H') P(B_1' | W_H')}.
+\end{equation*}
+This equation is in the Math HL formula booklet. This equation modifies an existing method of finding
+a robot's game winning probability since it needs \(P(W_H)\). For simplicity's sake, I will use the flip
+a coin method to find the initial \(P(W_H)\) for calculations. For our situation, the equation can be 
+simplified to the following:
+\begin{equation*}
+    P(W_H | B_1') = \frac{P(W_H) P(B_1' | W_H)}{P(B_1')}.
+\end{equation*}
 
-.
+This makes  Bayes' Theorem more practical for us given the variables known in this situation. Using past 
+equations, we know that
+\begin{align*}
+    P(W_H) &=  P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2}) \\
+    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})
+\end{align*}
+and that
+\begin{equation*}
+    P(B_1') = P(B_2) + P(B_3) + P(B_3),
+\end{equation*}
+since the partitions \(B_1\) along with \(B_2, B_3,\) and \(B_4\) all add up to 1, so the latter makes up the probability that at least
+one robot functions. If we can find \(P(B_1' | W_H)\), we can find \(P(W_H | B_1')\). ???:
 
-\( P(B_{1}) * P(W_{H} | B_{1})
-\)
+\begin{align*}
+    P(B_1' | W_H) &= P((B_2 \cup B_3 \cup B_4)| W_H)\\
+    % This step is correct, but I don't know why. Maybe law of total probability and mutually exclusive events.
+    &= P(B_2 | W_H \cup B_3 | W_H \cup B_4 | W_H) \\
+    &=P(B_2 | W_H) + P(B_3 | W_H) + P(B_4 | W_H)\\
+    % Triple Bayes' Theorem
+    &= \frac{P(B_2) P(W_H | B_2)}{P(W_H)}\\
+    &+ \frac{P(B_3)P(W_H | B_3)}{P(W_H)}\\
+    &+ \frac{P(B_4)P(W_H | B_4)}{P(W_H)}\\
+    &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}
+\end{align*}
+
+This is the portion of wins that come from one of the robots working. Plugging this 
+into the above equation:
+\begin{align*}
+    P(W_H | B_1') &= \frac{P(W_H) \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}}{P(B_1')}\\
+    &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(B_1')}
+\end{align*}
+This is the wins that come from at least one robot working divided by the portion of times that at least
+one robot workks. This equation is identical to the sum of an infinite geometric series equation found earlier.
+Thus, with two methods arriving at the same result, both are validated.
 
 \end{document}

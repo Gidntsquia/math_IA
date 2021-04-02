@@ -103,6 +103,8 @@ INPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_
 INPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux
 INPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux
 OUTPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -117,8 +119,12 @@ INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 OUTPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.pdf
 INPUT C:\Users\Jaxon\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT c:\Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\Jaxon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
