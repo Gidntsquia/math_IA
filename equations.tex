@@ -22,11 +22,6 @@ Since we redo the game when both robots fail,
     &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
 \end{align*}
 
-.
-
-.
-
-
 Let
 \begin{align*}
     r &= P(B_1)\\
@@ -57,11 +52,18 @@ Plugging in actual values in place of stand in variables:
 \end{align*}
 
 Therefore,
-
 \begin{equation*}
     % Redo method
     P(W_{H}) = \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{equation*}
+
+Plugging in values for Robot A against Robot B:
+\begin{align*}
+    P(W_{A,1}) &= \frac{0.375 * 0 + 0.125 * 1 + 0.125 * 1}{1-0.375}\\
+    &=\frac{0.25}{0.625}\\
+    &=0.4.
+\end{align*}
+
 
 \section{Bayes' Theorem}
 The question What is the probability a robot wins given that we redo all double fails?" can be restated as
