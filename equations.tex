@@ -3,6 +3,24 @@
 \usepackage{amsmath}
 \begin{document}
 
+\section{Aim and Approach}
+
+Tournament is a group of robots in a perfect backet with no byes
+\begin{equation*}
+    R_T = 2^n, n \in Z^+,
+\end{equation*}
+
+Rearranging above equation
+\begin{equation*}
+    n = \log_2(R_T).
+\end{equation*}
+
+\begin{align*}
+    n &= \log_2(4)\\
+    &= 2,
+\end{align*}
+
+
 \section{Robot game winning probability}
 
 
@@ -15,9 +33,12 @@
     &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
 \end{align*}
 
-Since we redo the game when both robots fail, 
+Since we redo the game when both robots fail,
+\begin{equation*}
+    P(W_H | B_1) = P(W_{H}).
+\end{equation*} 
+
 \begin{align*}
-    P(W_H | B_1) &= P(W_{H})\\
     P(W_H) &= P(B_{1}) * P(W_{H}) + P(B_{2}) * P(W_{H} | B_{2})\\
     &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
 \end{align*}
@@ -25,7 +46,7 @@ Since we redo the game when both robots fail,
 Let
 \begin{align*}
     r &= P(B_1)\\
-    u_1 &= P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)
+    u_1 &= P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4).
 \end{align*}
 
 
@@ -33,8 +54,8 @@ Let
 \begin{align*}
     P(W_H) &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2})\\
     &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})\\
-    &= r(P(W_{H} | B_1)) + u_1\\
-    &= u_1 + r(u_1 + u(P(W_{H} | B_1)))\\
+    &= r(P(W_{H})) + u_1\\
+    &= u_1 + r(u_1 + u(P(W_{H})))\\
     &= u_1 + r(u_1 + r(u_1 + r(u_1 + r\dots)))\\
     &= u_1 + ru_1 + r^2(u_1 + r(u_1 + r\dots))\\
     &= u_1 + ru_1 + r^2 u_1 + r^3 u_1 + r^4 u_1\dots.
@@ -48,7 +69,7 @@ series converges and we can use this formula to find a definite answer to this i
 Plugging in actual values in place of stand in variables:
 \begin{align*}
     s_{\infty} &= \frac{u_1}{1-r}\\
-    &= \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
+    P(W_H) &= \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{align*}
 
 Therefore,
@@ -61,7 +82,7 @@ Plugging in values for Robot A against Robot B:
 \begin{align*}
     P(W_{A,1}) &= \frac{0.375 * 0 + 0.125 * 1 + 0.125 * 1}{1-0.375}\\
     &=\frac{0.25}{0.625}\\
-    &=0.4.
+    &=0.40.
 \end{align*}
 
 
@@ -71,20 +92,20 @@ The question What is the probability a robot wins given that we redo all double 
 described as 
 \begin{align*}
     P(W_H) &= P(W_H | s_1 \cup s_2)\\
-    &= P(W_H | B_1').
+    &= P(W_H | s_H \cup s_E).
 \end{align*}
 
-We can relate this conditional probability with \(P(B_1' | W_H) \) using Bayes' Theroem with the following
+We can relate this conditional probability with \(P(s_H \cup s_E | W_H) \) using Bayes' Theroem with the following
 equation:
 \begin{equation*}
-    P(W_H | B_1') = \frac{P(W_H) P(B_1' | W_H)}{P(W_H) P(B_1' | W_H) + P(W_H') P(B_1' | W_H')}.
+    P(W_H | s_H \cup s_E) = \frac{P(W_H) P(s_H \cup s_E | W_H)}{P(W_H) P(s_H \cup s_E | W_H) + P(W_H') P(s_H \cup s_E | W_H')}.
 \end{equation*}
 This equation is in the Math HL formula booklet. This equation modifies an existing method of finding
 a robot's game winning probability since it needs \(P(W_H)\). For simplicity's sake, I will use the flip
 a coin method to find the initial \(P(W_H)\) for calculations. For our situation, the equation can be 
 simplified to the following:
 \begin{equation*}
-    P(W_H | B_1') = \frac{P(W_H) P(B_1' | W_H)}{P(B_1')}.
+    P(W_H | s_H \cup s_E) = \frac{P(W_H) P(s_H \cup s_E | W_H)}{P(s_H \cup s_E)}.
 \end{equation*}
 
 This makes  Bayes' Theorem more practical for us given the variables known in this situation. Using past 
@@ -95,13 +116,13 @@ equations, we know that
 \end{align*}
 and that
 \begin{equation*}
-    P(B_1') = P(B_2) + P(B_3) + P(B_3),
+    P(s_H \cup s_E) = P(B_2) + P(B_3) + P(B_3).
 \end{equation*}
 since the partitions \(B_1\) along with \(B_2, B_3,\) and \(B_4\) all add up to 1, so the latter makes up the probability that at least
-one robot functions. If we can find \(P(B_1' | W_H)\), we can find \(P(W_H | B_1')\). ???:
+one robot functions. If we can find \(P(s_H \cup s_E | W_H)\), we can find \(P(W_H | s_H \cup s_E)\). ???:
 
 \begin{align*}
-    P(B_1' | W_H) &= P((B_2 \cup B_3 \cup B_4)| W_H)\\
+    P(s_H \cup s_E | W_H) &= P((B_2 \cup B_3 \cup B_4)| W_H)\\
     % This step is correct, but I don't know why. Maybe law of total probability and mutually exclusive events.
     &= P(B_2 | W_H \cup B_3 | W_H \cup B_4 | W_H) \\
     &=P(B_2 | W_H) + P(B_3 | W_H) + P(B_4 | W_H)\\
@@ -115,11 +136,55 @@ one robot functions. If we can find \(P(B_1' | W_H)\), we can find \(P(W_H | B_1
 This is the portion of wins that come from one of the robots working. Plugging this 
 into the above equation:
 \begin{align*}
-    P(W_H | B_1') &= \frac{P(W_H) \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}}{P(B_1')}\\
-    &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(B_1')}
+    P(W_H | s_H \cup s_E) &= \frac{P(W_H) \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}}{P(s_H \cup s_E)}\\
+    &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(s_H \cup s_E)}
 \end{align*}
 This is the wins that come from at least one robot working divided by the portion of times that at least
 one robot workks. This equation is identical to the sum of an infinite geometric series equation found earlier.
 Thus, with two methods arriving at the same result, both are validated.
+
+\section{Winning Consecutive Rounds}
+What we know immediately
+\begin{equation*}
+    P(W_2) = P(W_1 \cap W_2),
+\end{equation*}
+
+Going further,
+\begin{align*}
+    P(W_2) &= \frac{P(W_1) \cdot P(W_1 \cap W_2)}{P(W_1)}\\
+    &= P(W_1) \cdot P(W_2 | W_1),
+\end{align*}
+
+This can be shown as
+\begin{equation*}
+    P(W_{2,A} | W_{1,A}) = P(B_C) \cdot P(W_{2,A} | B_C) + P(B_D) \cdot P(W_{2,A} | B_D).
+\end{equation*}
+
+So,
+\begin{equation*}
+    P(W_{2,A} | W_{1,A}) = P(W_{1,C}) \cdot P(W_{2,A} | W_{1,C}) + P(W_{1,D}) \cdot P(W_{2,A} | W_{1,D}).
+\end{equation*}
+
+By hand:
+\begin{align*}
+    P(W_{1,C}) &= \frac{P(s_C)(1-P(s_D))}{P(s_C) + P(s_D) - P(s_C)P(s_D)}\\
+    P(W_{1,D}) &= \frac{P(s_D)}{P(s_C) + P(s_D) - P(s_C)P(s_D)}\\
+    P(W_{2,A} | W_{1,C}) &= \frac{P(s_A)}{P(s_A) + P(s_C) - P(s_A)P(s_C)}\\
+    P(W_{2,A} | W_{1,D}) &= \frac{P(s_A)(1-P(s_D))}{P(s_A) + P(s_D) - P(s_A)P(s_D)}
+\end{align*}
+
+Plugging it all in
+\begin{align*}
+    P(W_{2,A} | W_{1,A}) &=\frac{.25\left(.75\right)\left(1-.125\right)}{\left(.75+.125-.75\cdot.125\right)\left(.75+.25-.75\cdot .25\right)}\\
+    &+\frac{(.125) (.25)\left(1-.125\right)}{\left(.75+.125-.75\cdot.125\right)\left(.125+.25-.125\cdot .25\right)}\\
+    &= 0.36027
+\end{align*}
+
+\begin{align*}
+    P(W_A) &= P(W_1) * P(W_2 | W_1)\\
+    &= 0.4 * 0.36027\\
+    &= 0.144108
+\end{align*}
+
 
 \end{document}

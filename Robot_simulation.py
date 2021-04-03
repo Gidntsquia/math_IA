@@ -16,30 +16,34 @@ class Robot:
         return repr((self.name, self.success_rate, self.points, self.wins, self.win_chance))
 
 
-# Ordered based on seeding bracket
-Los_Altos = Robot("Los Altos", 878, 0.5)
-Guardians = Robot("Guardians of the Garden Grove", 186, 0.875)
+# Ordered based on seeding bracket                              # Seed
+Los_Altos = Robot("Los Altos", 878, 0.5)                        # 1
+Guardians = Robot("Guardians of the Garden Grove", 186, 0.875)  # 16
 
-Noble = Robot("Noble", 204, 0.375)
-Tron = Robot("CWKA Tron", 292, 0.625)
+Noble = Robot("Noble", 204, 0.375)                              # 8
+Tron = Robot("CWKA Tron", 292, 0.625)                           # 9
 
-Hanalani = Robot("Hanalani", 342, 0.5)
-Joker = Robot("Joker", 255, 0.5)
+DRS = Robot("Dead Robot Society", 601, 0.625)                   # 4
+Malden_Cath = Robot("Malden Cath", 234, 0.375)                  # 13
 
-DRS = Robot("Dead Robot Society", 601, 0.625)
-Malden_Cath = Robot("Malden Cath", 234, 0.375)
+Hanalani = Robot("Hanalani", 342, 0.5)                          # 5 
+Joker = Robot("Joker", 255, 0.5)                                # 12
 
-Radiant = Robot("Radiant HT", 633, 0.5)
-G_Force = Robot("G-Force", 212, 0.625)
+Unic = Robot("HTL Unic", 672, 0.75)                             # 2
+Crane = Robot("CWKA Crane", 201, 0.5)                           # 15
 
-Warriors = Robot("Warriors", 317, 0.375)
-Incredibots = Robot("Incredibots", 280, 0.875)
+Malden = Robot("Malden", 309, 0.5)                              # 7
+EPost = Robot("Explorer Post 1010", 286, 0.625)                 # 10
 
-Malden = Robot("Malden", 309, 0.5)
-EPost = Robot("Explorer Post 1010", 286, 0.625)
+Radiant = Robot("Radiant HT", 633, 0.5)                         # 3
+G_Force = Robot("G-Force", 212, 0.625)                          # 14
 
-Unic = Robot("HTL Unic", 672, 0.75)
-Crane = Robot("CWKA Crane", 201, 0.5)
+Warriors = Robot("Warriors", 317, 0.375)                        # 6
+Incredibots = Robot("Incredibots", 280, 0.875)                  # 11
+
+
+
+
 
 
 """
@@ -69,7 +73,6 @@ def battle(robot1, robot2):
         points_scored1 = robot1.points
     else:
         points_scored1 = robot1.minimum_points
-
     if random.random() < robot2.success_rate:
         points_scored2 = robot2.points
     else:
@@ -82,7 +85,6 @@ def battle(robot1, robot2):
                 return True
             else:
                 return False
-        
     return(points_scored1 > points_scored2)
  
 
@@ -108,14 +110,14 @@ def main():
     tourney_robots = robots.copy()
     for robot in tourney_robots:
             robot.wins = 0
-    for i in range(0, 1000000):
+    for i in range(0, 10000000):
         winner = do_tournament_between(tourney_robots)
         for robot in tourney_robots:
             if robot.name == winner:
                 robot.wins += 1
         total_tournaments += 1
     for robot in tourney_robots:
-        win_chance = int(robot.wins / total_tournaments * 10000) / 100
+        win_chance = int(robot.wins / total_tournaments * 1000000) / 10000
         robot.win_chance = win_chance
     tourney_robots.sort(key=lambda roboguy: roboguy.win_chance, reverse=True)
     
