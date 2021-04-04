@@ -20,17 +20,96 @@ Rearranging above equation
     &= 2,
 \end{align*}
 
+Tournament winning general equation
+\begin{equation*}
+    P(W_n) = P(W_1) \cdot P(W_2 | W_1) \cdot P(W_3 | W_2) \cdot \dots P(W_{n-1} | W_{n-2}) \cdot P(W_n | W_{n-1}),
+\end{equation*}
 
 \section{Robot game winning probability}
+Setting variables and initial info
+\begin{equation*}
+    \log_2(4) = 2,
+\end{equation*}
+
+\begin{equation*}
+    0 \leq p \leq 1000,
+\end{equation*}
+
+\begin{equation*}
+    0 \leq s \leq 1.
+\end{equation*}
+
+\begin{equation*}
+    0.25 \leq s \leq 0.75,
+\end{equation*}
+
+(Partition Picture)
+
+General equation for partitioned sample space
+\begin{equation*}
+    P(W_H) = P(B_1) \cdot P(W_H | B_1) + P(B_2) \cdot P(W_H | B_2) + P(B_3) \cdot P(W_H | B_3) + P(B_4) \cdot P(W_H | B_4).
+\end{equation*}
+
+\begin{equation*}
+    P(B_1) = P(s_A' \cap s_B')
+\end{equation*}
+
+sA and sB are independenet, so:
+\begin{align*}
+    P(s_A' \cap s_B') &= P(s_A') \cdot P(s_B')\\
+    &= (1-P(s_A)) \cdot (1-P(s_B)).
+\end{align*}
+
+\begin{equation*}
+    P(B_1) = (1-P(s_A)) \cdot (1-P(s_B)).
+\end{equation*}
+
+B2 and B3 are easy because
+\begin{equation*}
+    p_A > p_B.
+\end{equation*}
 
 
+Flip a coin method
+\begin{equation*}
+    \lim_{x \rightarrow \infty}(s^x) = 0, 0 \leq s < 1.
+\end{equation*}
+
+Edge case for infinite game.
+\begin{equation*}
+    p_H = p_E
+\end{equation*}
+
+\begin{equation*}
+    s_H = s_E = 1
+\end{equation*}
+
+Calculations for flip a coin method for Robot A
+\begin{align*}
+    P(W_A | B_1) &= 0.5\\
+    P(W_A | B_2) &= 0\\
+    P(W_A | B_3) &= 1\\
+    P(W_A | B_4) &= 1.
+\end{align*}
+
+Plug everything in for \(P(W_A)\):
+\begin{align*}
+    P(W_A) &= P(B_1) \cdot P(W_A | B_1) + P(B_2) \cdot P(W_A | B_2) + P(B_3) \cdot P(W_A | B_3) + P(B_4) \cdot P(W_A | B_4)\\
+    &= 0.375 \cdot 0.5 + 0.375 \cdot 0 + 0.125 \cdot 1 + 0.125 \cdot 1\\ 
+    &= 0.1875 + 0 + 0.125 + 0.125\\
+    &= 0.4375
+\end{align*}
+
+
+
+Redo method
 \begin{align*}
     % Robot game winning probability
     P(W_{H})&= (1-P(s_1))(1-P(s_2))P(W_H | B_1) + (1-P(s_1))P(s_2)P(W_H | B_2)\\
     &+ P(s_1)(1-P(s_2))P(W_H | B_3) + P(s_1)P(s_2)P(W_H | B_4)\\
     \\
-    &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2}) \\
-    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
+    &= P(B_{1}) \cdot P(W_{H} | B_{1}) + P(B_{2}) \cdot P(W_{H} | B_{2}) \\
+    &+ P(B_{3}) \cdot P(W_{H} | B_{3}) + P(B_{4}) \cdot P(W_{H} | B_{4}).
 \end{align*}
 
 Since we redo the game when both robots fail,
@@ -39,8 +118,8 @@ Since we redo the game when both robots fail,
 \end{equation*} 
 
 \begin{align*}
-    P(W_H) &= P(B_{1}) * P(W_{H}) + P(B_{2}) * P(W_{H} | B_{2})\\
-    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4}).
+    P(W_H) &= P(B_{1}) \cdot P(W_{H}) + P(B_{2}) \cdot P(W_{H} | B_{2})\\
+    &+ P(B_{3}) \cdot P(W_{H} | B_{3}) + P(B_{4}) \cdot P(W_{H} | B_{4}).
 \end{align*}
 
 Let
@@ -52,23 +131,24 @@ Let
 
 
 \begin{align*}
-    P(W_H) &= P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2})\\
-    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})\\
+    P(W_H) &= P(B_{1}) \cdot P(W_{H}) + P(B_{2}) \cdot P(W_{H} | B_{2})\\
+    &+ P(B_{3}) \cdot P(W_{H} | B_{3}) + P(B_{4}) \cdot P(W_{H} | B_{4})\\
     &= r(P(W_{H})) + u_1\\
-    &= u_1 + r(u_1 + u(P(W_{H})))\\
+    &= u_1 + r(u_1 + r(P(W_{H})))\\
     &= u_1 + r(u_1 + r(u_1 + r(u_1 + r\dots)))\\
     &= u_1 + ru_1 + r^2(u_1 + r(u_1 + r\dots))\\
     &= u_1 + ru_1 + r^2 u_1 + r^3 u_1 + r^4 u_1\dots.
 \end{align*}
 The sum of a geometric series \(y = u_1 (r)^x \) is
 
-\(s_{\infty} = \frac{u_1}{1-r}\),
+\(s_{\infty} = \frac{u_1}{1-r}\)
 
 which I got from the IB Math formula booklet. Since \(r < 1 \), we know that this
 series converges and we can use this formula to find a definite answer to this infinite series.
 Plugging in actual values in place of stand in variables:
 \begin{align*}
-    s_{\infty} &= \frac{u_1}{1-r}\\
+    &\sum_{n=1}^\infty u_1(r)^n, |r| < 1,\\
+    S_\infty&= \frac{u_1}{1-r},\\
     P(W_H) &= \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{align*}
 
@@ -78,9 +158,14 @@ Therefore,
     P(W_{H}) = \frac{P(B_2)P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
 \end{equation*}
 
+Simplified infinite geometric series equation:
+\begin{equation*}
+    P(W_{H}) = \frac{P(B_3) + P(B_4)P(W_H | B_4)}{1-P(B_1)}.
+\end{equation*}
+
 Plugging in values for Robot A against Robot B:
 \begin{align*}
-    P(W_{A,1}) &= \frac{0.375 * 0 + 0.125 * 1 + 0.125 * 1}{1-0.375}\\
+    P(W_{A,1}) &= \frac{0.125 + 0.125 \cdot 1}{1-0.375}\\
     &=\frac{0.25}{0.625}\\
     &=0.40.
 \end{align*}
@@ -111,8 +196,8 @@ simplified to the following:
 This makes  Bayes' Theorem more practical for us given the variables known in this situation. Using past 
 equations, we know that
 \begin{align*}
-    P(W_H) &=  P(B_{1}) * P(W_{H} | B_{1}) + P(B_{2}) * P(W_{H} | B_{2}) \\
-    &+ P(B_{3}) * P(W_{H} | B_{3}) + P(B_{4}) * P(W_{H} | B_{4})
+    P(W_H) &=  P(B_{1}) \cdot P(W_{H} | B_{1}) + P(B_{2}) \cdot P(W_{H} | B_{2}) \\
+    &+ P(B_{3}) \cdot P(W_{H} | B_{3}) + P(B_{4}) \cdot P(W_{H} | B_{4})
 \end{align*}
 and that
 \begin{equation*}
@@ -127,7 +212,7 @@ one robot functions. If we can find \(P(s_H \cup s_E | W_H)\), we can find \(P(W
     &= P(B_2 | W_H \cup B_3 | W_H \cup B_4 | W_H) \\
     &=P(B_2 | W_H) + P(B_3 | W_H) + P(B_4 | W_H)\\
     % Triple Bayes' Theorem
-    &= \frac{P(B_2) P(W_H | B_2)}{P(W_H)}\\
+    P(s_H \cup s_E | W_H) &= \frac{P(B_2) P(W_H | B_2)}{P(W_H)}\\
     &+ \frac{P(B_3)P(W_H | B_3)}{P(W_H)}\\
     &+ \frac{P(B_4)P(W_H | B_4)}{P(W_H)}\\
     &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}
@@ -139,6 +224,11 @@ into the above equation:
     P(W_H | s_H \cup s_E) &= \frac{P(W_H) \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(W_H)}}{P(s_H \cup s_E)}\\
     &= \frac{P(B_2) P(W_H | B_2) + P(B_3)P(W_H | B_3) + P(B_4)P(W_H | B_4)}{P(s_H \cup s_E)}
 \end{align*}
+
+Simplified Bayes' Theorem equation:
+\begin{equation*}
+    P(W_H | s_H \cup s_E) = \frac{P(B_3) + P(B_4)P(W_H | B_4)}{P(s_H \cup s_E)}
+\end{equation*}
 This is the wins that come from at least one robot working divided by the portion of times that at least
 one robot workks. This equation is identical to the sum of an infinite geometric series equation found earlier.
 Thus, with two methods arriving at the same result, both are validated.
@@ -166,11 +256,13 @@ So,
 \end{equation*}
 
 By hand:
+
+Defining variables
 \begin{align*}
-    P(W_{1,C}) &= \frac{P(s_C)(1-P(s_D))}{P(s_C) + P(s_D) - P(s_C)P(s_D)}\\
-    P(W_{1,D}) &= \frac{P(s_D)}{P(s_C) + P(s_D) - P(s_C)P(s_D)}\\
-    P(W_{2,A} | W_{1,C}) &= \frac{P(s_A)}{P(s_A) + P(s_C) - P(s_A)P(s_C)}\\
-    P(W_{2,A} | W_{1,D}) &= \frac{P(s_A)(1-P(s_D))}{P(s_A) + P(s_D) - P(s_A)P(s_D)}
+    P(W_{1,C}) &= \frac{P(B_3)+ P(B_4)P(W_{1,C} | B_4)}{1 - P(B_1)}\\
+    P(W_{1,D}) &= \frac{P(B_3) + P(B_4)P(W_{1,D} | B_4)}{1 - P(B_1)}\\
+    P(W_{2,A} | W_{1,C}) &= \frac{P(B_3) + P(B_4)P((W_{2,A} | W_{1,C}) | B_4)}{1 - P(B_1)}\\
+    P(W_{1,A} | W_{1,D}) &= \frac{P(B_3) + P(B_4)P((W_{1,A} | W_{1,D}) | B_4)}{1 - P(B_1)},
 \end{align*}
 
 Plugging it all in
@@ -180,9 +272,10 @@ Plugging it all in
     &= 0.36027
 \end{align*}
 
+Solving for P(WA)
 \begin{align*}
-    P(W_A) &= P(W_1) * P(W_2 | W_1)\\
-    &= 0.4 * 0.36027\\
+    P(W_A) &= P(W_1) \cdot P(W_2 | W_1)\\
+    &= 0.4 \cdot 0.36027\\
     &= 0.144108
 \end{align*}
 

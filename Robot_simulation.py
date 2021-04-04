@@ -3,11 +3,10 @@ import math
 
 robots = []
 class Robot:
-    def __init__(self, name, points, success_rate, minimum_points = 0):
+    def __init__(self, name, points, success_rate):
         self.name = name
         self.success_rate = success_rate
         self.points = points
-        self.minimum_points = minimum_points
         self.wins = 0
         self.win_chance = 0
         robots.append(self)
@@ -42,10 +41,6 @@ Warriors = Robot("Warriors", 317, 0.375)                        # 6
 Incredibots = Robot("Incredibots", 280, 0.875)                  # 11
 
 
-
-
-
-
 """
 # Smaller Tournament
 
@@ -55,28 +50,25 @@ Incredibots = Robot("Incredibots", 280, 0.875)
 Radiant = Robot("Radiant HT", 633, 0.5)
 G_Force = Robot("G-Force", 212, 0.625)
 
-
-
+"""
 
 # Demonstration robots
-
 RobotA = Robot("Robot A", 200, 0.25)
 RobotB = Robot("Robot B", 100, 0.5)
 RobotC = Robot("Robot C", 50, 0.75)
 RobotD = Robot("Robot D", 250, 0.125)
-"""
 
-# Battles robot1 and robot2. Returns True if robot1 wins and False if robot2 wins.
+# Battles robot1 and robot2. Returns True if 
+# robot1 wins and False if robot2 wins.
 def battle(robot1, robot2):
     using_redo_method = True
+    points_scored1 = 0
+    points_scored2 = 0
+    # Robot scores points based on success rate
     if random.random() < robot1.success_rate:
         points_scored1 = robot1.points
-    else:
-        points_scored1 = robot1.minimum_points
     if random.random() < robot2.success_rate:
         points_scored2 = robot2.points
-    else:
-        points_scored2 = robot2.minimum_points
     if points_scored1 == points_scored2:
         if using_redo_method:
             return(battle(robot1, robot2))
@@ -93,10 +85,10 @@ def do_tournament_between(tourneyRobots):
     #random.shuffle(winners)
     while len(winners) > 1:
         for robot in range(0, int((len(winners)) / 2), 1):
-            # Adds winning robot to the winning list and losers to the losers list.
+            # Adds winning robot to the winning list and 
+            # losers to the losers list.
             if battle(winners[robot], winners[robot + 1]):
                 del winners[robot + 1]
-                
             else:
                 del winners[robot]
     return winners[0].name
