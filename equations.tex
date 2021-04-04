@@ -265,18 +265,29 @@ Defining variables
     P(W_{1,A} | W_{1,D}) &= \frac{P(B_3) + P(B_4)P((W_{1,A} | W_{1,D}) | B_4)}{1 - P(B_1)},
 \end{align*}
 
+Setting up the equation
+\begin{align*}
+    P(W_{2,A} | W_{1,A}) &= \frac{P(B_3)+ P(B_4)P(W_{1,C} | B_4)}{1 - P(B_1)}\\
+    &* \frac{P(B_3) + P(B_4)P((W_{2,A} | W_{1,C}) | B_4)}{1 - P(B_1)}\\
+    &+ \frac{P(B_3) + P(B_4)P(W_{1,D} | B_4)}{1 - P(B_1)}\\
+    &* \frac{P(B_3) + P(B_4)P((W_{1,A} | W_{1,D}) | B_4)}{1 - P(B_1)}.
+\end{align*}
+
 Plugging it all in
 \begin{align*}
-    P(W_{2,A} | W_{1,A}) &=\frac{.25\left(.75\right)\left(1-.125\right)}{\left(.75+.125-.75\cdot.125\right)\left(.75+.25-.75\cdot .25\right)}\\
-    &+\frac{(.125) (.25)\left(1-.125\right)}{\left(.75+.125-.75\cdot.125\right)\left(.125+.25-.125\cdot .25\right)}\\
-    &= 0.36027
+    P(W_{2,A} | W_{1,A}) &= \frac{0.75 \cdot (1-0.125) + 0}{(1 - (1-0.75)(1-0.125))}\\
+    &* \frac{0.25 \cdot (1-0.75) + 0.25 \cdot 0.75 \cdot 1}{1-(1-0.25)(1-0.75)}\\
+    &+ \frac{0.125 \cdot (1-0.75) + 0.125 \cdot 0.75 \cdot 1}{(1 - (1-0.125)(1-0.75))} \\
+    &* \frac{0.25 \cdot (1-0.125) + 0}{1-(1-0.25)(1-0.125)}\\
+    &= 0.36028.
 \end{align*}
+
 
 Solving for P(WA)
 \begin{align*}
-    P(W_A) &= P(W_1) \cdot P(W_2 | W_1)\\
-    &= 0.4 \cdot 0.36027\\
-    &= 0.144108
+    P(W_A) &= P(W_{1,A}) \cdot P(W_{2,A} | W_{1,A})\\
+    &= 0.4 \cdot 0.36028\\
+    &= 0.144111.
 \end{align*}
 
 

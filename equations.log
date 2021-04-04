@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.11)  4 APR 2021 01:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.11)  4 APR 2021 01:34
 entering extended mode
 **"c:/Users/Jaxon/Documents/School/IB Math HL/Math IA/Python Calculator/math_IA/equations.tex"
 (c:/Users/Jaxon/Documents/School/IB Math HL/Math IA/Python Calculator/math_IA/equations.tex
@@ -121,7 +121,7 @@ Overfull \hbox (5.21077pt too wide) detected at line 226
 []
  []
 
-[5] [6] (c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux) ) 
+[5] [6] [7] (c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.aux) ) 
 Here is how much of TeX's memory you used:
  1072 strings out of 479334
  15998 string characters out of 2857084
@@ -131,9 +131,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  67i,9n,74p,300b,116s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.pdf" (6 pages, 120375 bytes).
+Output written on "c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.pdf" (7 pages, 121806 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
