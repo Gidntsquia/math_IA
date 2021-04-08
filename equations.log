@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.11)  4 APR 2021 01:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.11)  8 APR 2021 14:40
 entering extended mode
 **"c:/Users/Jaxon/Documents/School/IB Math HL/Math IA/Python Calculator/math_IA/equations.tex"
 (c:/Users/Jaxon/Documents/School/IB Math HL/Math IA/Python Calculator/math_IA/equations.tex
@@ -100,24 +100,24 @@ LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 
-Overfull \hbox (57.78091pt too wide) detected at line 51
+Overfull \hbox (57.78091pt too wide) detected at line 67
 \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
  []
 
 [1
 
 {C:/Users/Jaxon/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Overfull \hbox (82.64561pt too wide) detected at line 101
+Overfull \hbox (77.78432pt too wide) detected at line 110
 []
  []
 
-[2] [3]
-Overfull \hbox (5.21077pt too wide) detected at line 219
+[2] [3] [4]
+Overfull \hbox (5.21077pt too wide) detected at line 222
 []
  []
 
-[4]
-Overfull \hbox (5.21077pt too wide) detected at line 226
+
+Overfull \hbox (5.21077pt too wide) detected at line 229
 []
  []
 
@@ -131,7 +131,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  67i,9n,74p,300b,116s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jaxon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.pdf" (7 pages, 121806 bytes).
+Output written on "c:/Users\Jaxon\Documents\School\IB Math HL\Math IA\Python Calculator\math_IA\equations.pdf" (7 pages, 122410 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

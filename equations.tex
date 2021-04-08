@@ -25,23 +25,39 @@ Tournament winning general equation
     P(W_n) = P(W_1) \cdot P(W_2 | W_1) \cdot P(W_3 | W_2) \cdot \dots P(W_{n-1} | W_{n-2}) \cdot P(W_n | W_{n-1}),
 \end{equation*}
 
-\section{Robot game winning probability}
+What we know immediately
+\begin{equation*}
+    P(W_2) = P(W_1 \cap W_2),
+\end{equation*}
+
+Going further,
+\begin{align*}
+    P(W_2) &= \frac{P(W_1) \cdot P(W_1 \cap W_2)}{P(W_1)}\\
+    &= P(W_1) \cdot P(W_2 | W_1),
+\end{align*}
+
 Setting variables and initial info
+\begin{equation*}
+    \log_2(16) = 4.
+\end{equation*}
 \begin{equation*}
     \log_2(4) = 2,
 \end{equation*}
 
 \begin{equation*}
-    0 \leq p \leq 1000,
+    0 < p \leq 1000,
 \end{equation*}
 
 \begin{equation*}
-    0 \leq s \leq 1.
+    0 < s < 1.
 \end{equation*}
 
 \begin{equation*}
-    0.25 \leq s \leq 0.75,
+    0.125 \leq s \leq 0.875,
 \end{equation*}
+
+\section{Robot game winning probability}
+
 
 (Partition Picture)
 
@@ -50,23 +66,16 @@ General equation for partitioned sample space
     P(W_H) = P(B_1) \cdot P(W_H | B_1) + P(B_2) \cdot P(W_H | B_2) + P(B_3) \cdot P(W_H | B_3) + P(B_4) \cdot P(W_H | B_4).
 \end{equation*}
 
-\begin{equation*}
-    P(B_1) = P(s_A' \cap s_B')
-\end{equation*}
 
 sA and sB are independenet, so:
 \begin{align*}
-    P(s_A' \cap s_B') &= P(s_A') \cdot P(s_B')\\
-    &= (1-P(s_A)) \cdot (1-P(s_B)).
+    P(B_1) &= P((1-s_J) \cap (1-s_K))\\
+    &= P(1-s_J) \cdot P(1-s_K).
 \end{align*}
-
-\begin{equation*}
-    P(B_1) = (1-P(s_A)) \cdot (1-P(s_B)).
-\end{equation*}
 
 B2 and B3 are easy because
 \begin{equation*}
-    p_A > p_B.
+    p_J > p_K.
 \end{equation*}
 
 
@@ -77,24 +86,24 @@ Flip a coin method
 
 Edge case for infinite game.
 \begin{equation*}
-    p_H = p_E
+    p_{H} = p_{V}
 \end{equation*}
 
 \begin{equation*}
-    s_H = s_E = 1
+    s_H = s_V = 1
 \end{equation*}
 
 Calculations for flip a coin method for Robot A
 \begin{align*}
-    P(W_A | B_1) &= 0.5\\
-    P(W_A | B_2) &= 0\\
-    P(W_A | B_3) &= 1\\
-    P(W_A | B_4) &= 1.
+    P(W_J | B_1) &= 0.5\\
+    P(W_J | B_2) &= 0\\
+    P(W_J | B_3) &= 1\\
+    P(W_J | B_4) &= 1.
 \end{align*}
 
-Plug everything in for \(P(W_A)\):
+Plug everything in for \(P(W_J)\):
 \begin{align*}
-    P(W_A) &= P(B_1) \cdot P(W_A | B_1) + P(B_2) \cdot P(W_A | B_2) + P(B_3) \cdot P(W_A | B_3) + P(B_4) \cdot P(W_A | B_4)\\
+    P(W_J) &= P(B_1) \cdot P(W_J | B_1) + P(B_2) \cdot P(W_J | B_2) + P(B_3) \cdot P(W_J | B_3) + P(B_4) \cdot P(W_J | B_4)\\
     &= 0.375 \cdot 0.5 + 0.375 \cdot 0 + 0.125 \cdot 1 + 0.125 \cdot 1\\ 
     &= 0.1875 + 0 + 0.125 + 0.125\\
     &= 0.4375
@@ -105,10 +114,7 @@ Plug everything in for \(P(W_A)\):
 Redo method
 \begin{align*}
     % Robot game winning probability
-    P(W_{H})&= (1-P(s_1))(1-P(s_2))P(W_H | B_1) + (1-P(s_1))P(s_2)P(W_H | B_2)\\
-    &+ P(s_1)(1-P(s_2))P(W_H | B_3) + P(s_1)P(s_2)P(W_H | B_4)\\
-    \\
-    &= P(B_{1}) \cdot P(W_{H} | B_{1}) + P(B_{2}) \cdot P(W_{H} | B_{2}) \\
+    P(W_{H})&= P(B_{1}) \cdot P(W_{H} | B_{1}) + P(B_{2}) \cdot P(W_{H} | B_{2}) \\
     &+ P(B_{3}) \cdot P(W_{H} | B_{3}) + P(B_{4}) \cdot P(W_{H} | B_{4}).
 \end{align*}
 
@@ -165,20 +171,17 @@ Simplified infinite geometric series equation:
 
 Plugging in values for Robot A against Robot B:
 \begin{align*}
-    P(W_{A,1}) &= \frac{0.125 + 0.125 \cdot 1}{1-0.375}\\
+    P(W_{J,1}) &= \frac{0.125 + 0.125 \cdot 1}{1-0.375}\\
     &=\frac{0.25}{0.625}\\
     &=0.40.
 \end{align*}
 
 
 \section{Bayes' Theorem}
-The question What is the probability a robot wins given that we redo all double fails?" can be restated as
-"What is the probability a robot wins given that at least one robot succeeds?" So, the "redo" method can be
-described as 
-\begin{align*}
-    P(W_H) &= P(W_H | s_1 \cup s_2)\\
-    &= P(W_H | s_H \cup s_E).
-\end{align*}
+Bayes Theorem:
+\begin{equation*}
+    P(B | A) = \frac{P(B)P(A|B)}{P(B)P(A|B) + P(B')P(A|B')},
+\end{equation*}
 
 We can relate this conditional probability with \(P(s_H \cup s_E | W_H) \) using Bayes' Theroem with the following
 equation:
@@ -234,58 +237,49 @@ one robot workks. This equation is identical to the sum of an infinite geometric
 Thus, with two methods arriving at the same result, both are validated.
 
 \section{Winning Consecutive Rounds}
-What we know immediately
-\begin{equation*}
-    P(W_2) = P(W_1 \cap W_2),
-\end{equation*}
 
-Going further,
-\begin{align*}
-    P(W_2) &= \frac{P(W_1) \cdot P(W_1 \cap W_2)}{P(W_1)}\\
-    &= P(W_1) \cdot P(W_2 | W_1),
-\end{align*}
 
 This can be shown as
 \begin{equation*}
-    P(W_{2,A} | W_{1,A}) = P(B_C) \cdot P(W_{2,A} | B_C) + P(B_D) \cdot P(W_{2,A} | B_D).
+    P(W_{J, 2} | W_{J, 1}) = P(B_C) \cdot P(W_{J, 2} | B_C) + P(B_D) \cdot P(W_{J, 2} | B_D).
 \end{equation*}
 
 So,
 \begin{equation*}
-    P(W_{2,A} | W_{1,A}) = P(W_{1,C}) \cdot P(W_{2,A} | W_{1,C}) + P(W_{1,D}) \cdot P(W_{2,A} | W_{1,D}).
+    P(W_{J, 2} | W_{J, 1}) = P(W_{L, 1}) \cdot P(W_{J, 2} | W_{L, 1}) + P(W_{M, 1}) \cdot P(W_{J, 2} | W_{M, 1}).
 \end{equation*}
 
 By hand:
 
 Defining variables
 \begin{align*}
-    P(W_{1,C}) &= \frac{P(B_3)+ P(B_4)P(W_{1,C} | B_4)}{1 - P(B_1)}\\
-    P(W_{1,D}) &= \frac{P(B_3) + P(B_4)P(W_{1,D} | B_4)}{1 - P(B_1)}\\
-    P(W_{2,A} | W_{1,C}) &= \frac{P(B_3) + P(B_4)P((W_{2,A} | W_{1,C}) | B_4)}{1 - P(B_1)}\\
-    P(W_{1,A} | W_{1,D}) &= \frac{P(B_3) + P(B_4)P((W_{1,A} | W_{1,D}) | B_4)}{1 - P(B_1)},
+    P(W_{L, 1}) &= \frac{P(B_3)+ P(B_4)P(W_{L, 1} | B_4)}{1 - P(B_1)}\\
+    P(W_{M, 1}) &= \frac{P(B_3) + P(B_4)P(W_{M, 1} | B_4)}{1 - P(B_1)}\\
+    P(W_{J, 2} | W_{L, 1}) &= \frac{P(B_3) + P(B_4)P((W_{J, 2} | W_{L, 1}) | B_4)}{1 - P(B_1)}\\
+    P(W_{J, 1} | W_{M, 1}) &= \frac{P(B_3) + P(B_4)P((W_{J, 1} | W_{M, 1}) | B_4)}{1 - P(B_1)},
 \end{align*}
 
 Setting up the equation
 \begin{align*}
-    P(W_{2,A} | W_{1,A}) &= \frac{P(B_3)+ P(B_4)P(W_{1,C} | B_4)}{1 - P(B_1)}\\
-    &* \frac{P(B_3) + P(B_4)P((W_{2,A} | W_{1,C}) | B_4)}{1 - P(B_1)}\\
-    &+ \frac{P(B_3) + P(B_4)P(W_{1,D} | B_4)}{1 - P(B_1)}\\
-    &* \frac{P(B_3) + P(B_4)P((W_{1,A} | W_{1,D}) | B_4)}{1 - P(B_1)}.
+    P(W_{J, 2} | W_{J, 1}) &= \frac{P(B_3)+ P(B_4)P(W_{L, 1} | B_4)}{1 - P(B_1)}\\
+    &\cdot \frac{P(B_3) + P(B_4)P((W_{J, 2} | W_{L, 1}) | B_4)}{1 - P(B_1)}\\
+    &+ \frac{P(B_3) + P(B_4)P(W_{M, 1} | B_4)}{1 - P(B_1)}\\
+    &\cdot \frac{P(B_3) + P(B_4)P((W_{J, 1} | W_{M, 1}) | B_4)}{1 - P(B_1)}.
 \end{align*}
 
 Plugging it all in
 \begin{align*}
-    P(W_{2,A} | W_{1,A}) &= \frac{0.75 \cdot (1-0.125) + 0}{(1 - (1-0.75)(1-0.125))}\\
-    &* \frac{0.25 \cdot (1-0.75) + 0.25 \cdot 0.75 \cdot 1}{1-(1-0.25)(1-0.75)}\\
+    P(W_{J, 2} | W_{J, 1}) &= \frac{0.75 \cdot (1-0.125) + 0}{(1 - (1-0.75)(1-0.125))}\\
+    &\cdot \frac{0.25 \cdot (1-0.75) + 0.25 \cdot 0.75 \cdot 1}{1-(1-0.25)(1-0.75)}\\
     &+ \frac{0.125 \cdot (1-0.75) + 0.125 \cdot 0.75 \cdot 1}{(1 - (1-0.125)(1-0.75))} \\
-    &* \frac{0.25 \cdot (1-0.125) + 0}{1-(1-0.25)(1-0.125)}\\
+    &\cdot \frac{0.25 \cdot (1-0.125) + 0}{1-(1-0.25)(1-0.125)}\\
     &= 0.36028.
 \end{align*}
 
 
 Solving for P(WA)
 \begin{align*}
-    P(W_A) &= P(W_{1,A}) \cdot P(W_{2,A} | W_{1,A})\\
+    P(W_J) &= P(W_{J, 1}) \cdot P(W_{J, 2} | W_{J, 1})\\
     &= 0.4 \cdot 0.36028\\
     &= 0.144111.
 \end{align*}

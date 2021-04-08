@@ -39,29 +39,18 @@ G_Force = Robot("G-Force", 212, 0.625)                          # 14
 
 Warriors = Robot("Warriors", 317, 0.375)                        # 6
 Incredibots = Robot("Incredibots", 280, 0.875)                  # 11
-
-
 """
-# Smaller Tournament
-
-Warriors = Robot("Warriors", 317, 0.375)
-Incredibots = Robot("Incredibots", 280, 0.875)
-
-Radiant = Robot("Radiant HT", 633, 0.5)
-G_Force = Robot("G-Force", 212, 0.625)
-
-"""
-
 # Demonstration robots
-RobotA = Robot("Robot A", 200, 0.25)
-RobotB = Robot("Robot B", 100, 0.5)
-RobotC = Robot("Robot C", 50, 0.75)
-RobotD = Robot("Robot D", 250, 0.125)
+RobotJ = Robot("Robot J", 200, 0.25)
+RobotK = Robot("Robot K", 100, 0.5)
+RobotL = Robot("Robot L", 50, 0.75)
+RobotM = Robot("Robot M", 250, 0.125)
+"""
 
 # Battles robot1 and robot2. Returns True if 
 # robot1 wins and False if robot2 wins.
 def battle(robot1, robot2):
-    using_redo_method = True
+    using_redo_method = True  ## Comment this line to use flip a coin method.
     points_scored1 = 0
     points_scored2 = 0
     # Robot scores points based on success rate
@@ -82,7 +71,7 @@ def battle(robot1, robot2):
 
 def do_tournament_between(tourneyRobots):
     winners = tourneyRobots.copy()
-    #random.shuffle(winners)
+    #random.shuffle(winners)  ## Uncomment this line to randomize tournament seeds.
     while len(winners) > 1:
         for robot in range(0, int((len(winners)) / 2), 1):
             # Adds winning robot to the winning list and 
